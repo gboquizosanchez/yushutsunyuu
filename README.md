@@ -15,6 +15,8 @@ With this tool you can use mediawiki importation in order to batch files into it
 - Wikitable-unicode folder with .txt extracted from SomaTrans.exe tool inside of `input` folder.
 
 ## Running 🛠️
+To install PHP dependencies just type in CLI `composer install`.
+
 In the root of project with CLI type `php yushutsunyuu` with from below arguments.
 
 ### Arguments ⚙️

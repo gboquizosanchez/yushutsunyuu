@@ -1,0 +1,35 @@
+{
+  "name": "gboquizo/yushutsunyuu",
+  "description": "Importer and exporter",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Germán Boquizo Sánchez",
+      "email": "germanboquizosanchez@gmail.com"
+    }
+  ],
+  "keywords": [
+    "bringer",
+    "soma"
+  ],
+  "autoload": {
+    "files": [
+      "src/utilities/helpers.php"
+    ],
+    "psr-4": {
+      "YuShutsuNyuu\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*",
+    "ext-simplexml": "*",
+    "spatie/array-to-xml": "^2.16",
+    "illuminate/filesystem": "^8.36"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^5.2",
+    "hermes/dependencies": "^1.0"
+  }
+}

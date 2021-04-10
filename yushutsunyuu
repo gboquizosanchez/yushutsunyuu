@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+
+<?php
+
+use YuShutsuNyuu\Generators\MainPageGenerator;
+use YuShutsuNyuu\Generators\XMLGenerator;
+
+function includeIfExists(string $file): bool
+{
+    return file_exists($file) && include $file;
+}
+
+if (
+    !includeIfExists(__DIR__ . '/../../autoload.php') &&
+    !includeIfExists(__DIR__ . '/vendor/autoload.php') &&
+    !includeIfExists(__DIR__ . '/../../../../vendor/autoload.php')
+) {
+    fwrite(STDERR, 'Install dependencies using Composer.' . PHP_EOL);
+    exit(1);
+}
+
+$arguments = getopt('irem', ['import', 'redirect', 'export', 'path::', 'output::']);
+
+if (isset($arguments['m'])) {
+    (new MainPageGenerator())->generate();
+}
+
+if (isset($arguments['import']) || isset($arguments['i'])) {
+    (new XMLGenerator())->import('importation', $arguments['output'] ?? null);
+}
+
+if (isset($arguments['redirect']) || isset($arguments['r'])) {
+    (new XMLGenerator())->import('redirection', $arguments['output'] ?? null);
+}
